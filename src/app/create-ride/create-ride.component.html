@@ -1,0 +1,100 @@
+<div class="message">
+    <h2>Create a Ride and Assign a driver</h2>
+    <h3>Currently taking input for amount , but it should calculate using distance</h3>
+</div>
+    
+
+    <div class="main">
+    <form [formGroup]="Form" >
+
+            <label>Rider Name</label>
+            <mat-form-field appearance="outline">
+                <mat-label>Rider Name</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="riderName">
+              </mat-form-field>
+    
+            <label>Rider Phone</label>
+            <mat-form-field appearance="outline">
+                <mat-label>Rider Phone</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="riderPhone">
+              </mat-form-field>
+
+
+            <label>Pick Up Address</label>
+            <mat-form-field appearance="outline">
+                <mat-label>Pick Up Address</mat-label>
+                <textarea matInput placeholder="Placeholder" formControlName="pickUPAddress">
+                    </textarea>
+              </mat-form-field>
+
+
+              <div>
+            <label>Drop Address</label>
+            <mat-form-field appearance="outline">
+                <mat-label>Drop Address</mat-label>
+                <textarea matInput placeholder="Placeholder" formControlName="dropAddress"></textarea>
+              </mat-form-field>
+              </div>
+ 
+        <label>Driver Name</label>
+        <mat-form-field appearance="outline">
+            <mat-label>Driver Name</mat-label>
+            <mat-select formControlName="driverId">
+              <mat-option *ngFor=" let data of newArray"value="{{data._id}}">{{data.driverName}}</mat-option>
+        
+            </mat-select>
+          </mat-form-field>
+
+ 
+   
+            <label>Ride Type</label>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="riderType">
+                    <mat-option value="rental_ride">Rental Ride</mat-option>
+                    <mat-option value="scheduled_ride">Scheduled Ride</mat-option>
+              
+                  </mat-select>
+              </mat-form-field>
+
+
+
+            <label>Payment Type</label>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="paymentType">
+                    <mat-option value="UPI">UPI</mat-option>
+                    <mat-option value="BLU_WALLET">Blue Wallet</mat-option>
+              
+                  </mat-select>
+              </mat-form-field>
+
+
+        <div>
+            <label>Amount</label>
+            <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="amount">
+              </mat-form-field>
+        </div>
+
+
+            <mat-form-field appearance="outline" >
+                <mat-label>Scheduled Time</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="scheduledTime">
+      
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+
+              
+  
+
+ 
+        <button mat-raised-button (click)="save()" style="width:200px;"> Save</button>
+
+
+    <button  mat-raised-button routerLink="/"> Check Dashboard
+
+    </button>
+    </form>
+    </div>
+    

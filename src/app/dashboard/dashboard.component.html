@@ -1,0 +1,83 @@
+
+<div class="main">
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition in ts file" -->
+
+    <ng-container matColumnDef="Driver">
+      <th mat-header-cell *matHeaderCellDef> Driver</th>
+      <td mat-cell *matCellDef="let element"> {{element.driverName}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="Rider">
+      <th mat-header-cell *matHeaderCellDef>Rider</th>
+      <td mat-cell *matCellDef="let element"> {{element.riderName}} </td>
+    </ng-container>
+  
+ 
+    <ng-container matColumnDef="PickUp">
+      <th mat-header-cell *matHeaderCellDef> pick up Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.pickUPAddress}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="DropOff">
+      <th mat-header-cell *matHeaderCellDef> Drop Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.dropAddress}} </td>
+    </ng-container>
+
+
+      <ng-container matColumnDef="Ride State">
+        <th mat-header-cell *matHeaderCellDef> Ride State </th>
+        <td mat-cell *matCellDef="let element">  
+        <mat-form-field appearance="outline">
+            <mat-label>{{element.rideState}}</mat-label>
+            <mat-select (selectionChange)="someMethod($event.value,element._id)">
+              <mat-option value="created">
+                created
+              </mat-option>
+              <mat-option value="assigned">
+                assigned
+              </mat-option>
+              <mat-option value="start">
+                start
+              </mat-option>
+              
+              
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+ 
+      <ng-container matColumnDef="Payment">
+        <th mat-header-cell *matHeaderCellDef> Payment </th>
+        <td mat-cell *matCellDef="let element"> {{element.paymentType}} <br> Rs.{{element.amount}}</td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+  </table>
+  <mat-paginator
+  #paginator
+  [pageSizeOptions]="[2, 4, 6]"
+  showFirstLastButtons
+></mat-paginator>
+
+  <div class="button-box">
+    <button  mat-raised-button routerLink="/ride"> Create Ride
+
+    </button>
+
+    <button  mat-raised-button routerLink="/driver"> Create Drive
+
+    </button>
+</div>
+
+</div>
+

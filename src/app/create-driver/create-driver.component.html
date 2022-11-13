@@ -1,0 +1,31 @@
+
+
+
+<div class="main">
+    <div>
+        <h1>//Add New Driver</h1>
+    </div>
+
+<form [formGroup]="Form" >
+
+    <div>
+        <label>Driver Name</label>
+        <mat-form-field appearance="outline">
+            <mat-label>Driver Name</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="driverName">
+          </mat-form-field>
+    </div>
+    <div>
+        <label>Driver Phone</label>
+        <mat-form-field appearance="outline">
+            <mat-label>Driver Phone</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="driverPhone">
+          </mat-form-field>
+    </div>
+    <button mat-raised-button (click)="save()" > Save</button>
+
+    <button  mat-raised-button routerLink="/"> Check Dashboard
+
+    </button>
+</form>
+</div>
