@@ -28,14 +28,15 @@ export class DashboardComponent implements AfterViewInit  {
     this.mainService.getRide().subscribe(res=>{
       this.dataSource= new MatTableDataSource<Ride[]>(res)
       this.dataSourceWithPageSize=new MatTableDataSource<Ride[]>(res)
+      this.dataSource.paginator = this.paginator;
+      this.dataSourceWithPageSize.paginator = this.paginatorPageSize;
     })
 
   }
 
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSourceWithPageSize.paginator = this.paginatorPageSize;
+
   }
 
   someMethod(state:any, id:any){
